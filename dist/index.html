@@ -9,11 +9,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <div class="content">
             <h1>Consent form</h1>
+
+            <!-- Consent form text -->
             <div class="consent-text">
                 <h2>Comparing students' perceived difficulty level of CSSE220 assignments in terms of syntax and conceptual challenge. </h2>
 	            
@@ -42,19 +41,20 @@
                 <p>By checking the box below, I agree to participate in this study. I understand the procedures described above. My questions have been answered to my satisfaction. I have been given a copy of this form.</p>
             </div>
 
+            <!-- "Sign" with checkbox and continue to survey-->
             <div class="form-control">
                 <label for="inp-1">
-                    <input type="checkbox" name="inp"></input>
+                    <input id="checkbox" type="checkbox" name="inp"></input>
                     
                     I agree to participate in this study. I understood the procedures described above.
                 </label>           
             
-                <a id="continue-btn" href="https://williamson-surveying-tool.web.app/">Continue to survey</a>
+                <a hidden id="continue-btn" href="https://williamson-surveying-tool.web.app/">Continue to survey</a>
             </div>
         </div>
       
         
         
-        <script src="" async defer></script>
+        <script src="bundle.js" async defer></script>
     </body>
 </html>

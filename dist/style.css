@@ -3,7 +3,7 @@ body {
     font-family: sans-serif;
     font-size: 1em;
 
-   margin: 3em 3em 3em 3em;
+   margin: 3em 1em 3em 1em;
    height: 100%;
 }
 
@@ -11,10 +11,13 @@ body {
     display: flex;
     flex-direction: column;
 
-    padding: 1em;
+    margin: auto;
+    max-width:50rem;
+    padding: 1.5em;
+
     background-color: white;
-    border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 1);
+    border-radius: 1em;
+    border: solid 0.15em rgba(54, 162, 235, 1);
 }
 
 iframe {

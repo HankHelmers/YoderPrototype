@@ -15,7 +15,7 @@
   \*************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://yoderprototype/./source/index.js?");
+eval("const checkbox = document.querySelector(\"#checkbox\");\r\n\r\nconsole.log(\"index.js\")\r\n\r\n// Adds listener to checkbox\r\n// When checkbox is clicked, toggle \"hidden\" attribute to OPPOSITE position\r\ncheckbox.addEventListener(\"click\", (e) => {\r\n    document.getElementById(\"continue-btn\").toggleAttribute(\"hidden\");\r\n    \r\n});\n\n//# sourceURL=webpack://yoderprototype/./source/index.js?");
 
 /***/ })
 
