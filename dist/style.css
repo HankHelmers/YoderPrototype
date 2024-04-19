@@ -1,4 +1,43 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+ 
+
+
+.chartCard {
+    width: 100vw;
+    height: 100vh; 
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+.chartBox {
+    width: 80vh;
+    margin: 5vh;
+    padding: 5vw;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+} 
+
+h1, h3, p {
+    padding: 3vh 0 0 0;
+}
+
+button {
+    margin: 1vh;
+    padding: 1vh;
+    border: solid 3px rgb(136, 139, 141);
+    background-color: rgb(206, 206, 206)
+  }
+
+
+/* body {
     background: rgba(54, 162, 235, 0.2);
     font-family: sans-serif;
     font-size: 1em;
@@ -38,4 +77,4 @@ iframe {
     border-radius: 20px;
     border: solid 3px rgba(54, 162, 235, 0.3);
     background-color: rgba(54, 162, 235, 0.3);
-}
+} */

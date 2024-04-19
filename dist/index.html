@@ -1,128 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
+    <title>Yoder Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-      .chartMenu {
-        width: 100vw;
-        height: 40px;
-        background: #1A1A1A;
-        color: rgba(54, 162, 235, 1);
-      }
-
-      .chartMenu p {
-        padding: 10px;
-        font-size: 20px;
-      }
-
-      .chartCard {
-        width: 100vw;
-        height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .chartBox {
-        width: 700vh;
-        margin: 5vh;
-        padding: 5vw;
-        border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
-        background: white;
-      }
-    </style>
-  </head>
-  <body>
+<body>
     <div class="chartCard">
-      <div class="chartBox">
+        <div class="chartBox">
 
-        <h2> Student Responses</h2>
-        <canvas id="myChart"></canvas>
-
-       <!--
-        <input onkeyup="updateChart(this)" type="number">
-       -->
-      </div>
+            <h2>For each assignment, rank the syntax* difficulty required on a scale from 1 to 5.</h2>
+            <h3>5 being most difficult and 1 being not difficult.</h3>
+            
+            <canvas id="myChart"></canvas>
+            
+            <p>*Syntax is defined as, "rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that (programming) language."</p>
+        
+            <button hidden id="submitBtn" src="">Submit response</button>
+        </div>
     </div>
 
 
     <!-- Import ChartJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-    <script>
-    // setup 
-    const data = {
-      labels: ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'],
-      //abels: ['January', 'February', 'March', 'April'],
-      datasets: [{
-            type: 'bar',
-            label: 'Bar Dataset',
-            data: [0, 0, 0, 0]
-        }, 
-        {
-            type: 'scatter',
-            label: 'Syntax Difficulty',
-            data: [4.5, 3, 2, 1],
-        },
-        {
-            type: 'scatter',
-            label: 'Conceptual Difficulty',
-            data: [2, 3, 4, 4.5],
-        },
-    ],
-    };
+    <script src="bundle.js"></script>
+</body>
 
-    // config 
-    const config = {
-        data,
-        options: {
-            scales: {
-                x: {
-                    //type: 'linear',
-                },
-                y: {
-                    max:5,
-                    ticks: {
-                        stepSize: 1,
-                    }
-                }
-            },
-
-            plugins: {
-                legend: {
-                    labels: {
-                        usePointStyle: true,
-                    }
-                }
-            }
-      }
-    };
-
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-
-    function updateChart(barvalue) {
-        console.log(barvalue.value)
-        myChart.config.data.datasets[0].data[0] = barvalue.value;
-        myChart.update();
-    }
-
-    // Instantly assign Chart.js version
-    const chartVersion = document.getElementById('chartVersion');
-    chartVersion.innerText = Chart.version;
-    </script>
-
-  </body>
 </html>
