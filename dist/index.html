@@ -1,60 +1,128 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="content">
-            <h1>Consent form</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
 
-            <!-- Consent form text -->
-            <div class="consent-text">
-                <h2>Comparing students' perceived difficulty level of CSSE220 assignments in terms of syntax and conceptual challenge. </h2>
-	            
-                <p>You are being invited to participate in a research study.  This study aims to find out the students' perceived difficulty level of four different CSSE220 assignments in terms of syntax and conceptual challenge using a graphic surveying tool.  This document will help you decide if you want to participate in this research by providing information about the study and what you are asked to do. In the survey, you will be prompted to rank the level of difficulty of the assignments twice: first for the syntactical difficulty and second for the conceptual difficulty. You will be adding points to the graph with difficulty ranking one to five, labeled respectively, when prompted. The survey will only take two minutes and will be conducted in four separate sessions; each session after the deadline for an assignment. 
-                </p>
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
 
-                <p>Some reasons you might want to participate in this research are that it will improve the professor's understanding of the current status of student learning of perceived syntactic and conceptual difficulty at the beginning of CSSE220 and, by extension, the course for future CSSE220 students. One reason you might not want to participate in this research is a lack of desire.</p>
-            
-                <p>This study asks you to input points into the data surveying tool. The surveying tool will have a graph with the homework assignments on the x-axis and levels of perceived difficulty from one to five on the y-axis, five being the most difficult and one being the least. In the survey, first, you will be prompted to rank the syntax difficulty for an assignment with a point. You later will be prompted to rank the level of conceptual difficulty for that assignment with another point on the graph. Additionally, you will be asked to provide an estimate of the time you will spend on each of the assignments. You have been asked to participate in this research because you are taking CSSE220 this quarter.</p>
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
 
-                <p>The choice to participate or not is yours; participation is entirely voluntary.  You can decline to put points on the graph or withdraw at any time. If you wish to withdraw during the survey, you can choose not to respond to any potential surveys, and if you have any questions related to the survey, you can ask the primary investigators at any time. 
-                </p>
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-                <p>Every effort will be made to protect your anonymity by not collecting your identifying personal information. The points that you input to the graph cannot be tracked to a specific user due to the design of the surveying tool. Hence, your anonymity is ensured.
-                </p>
+      .chartBox {
+        width: 700vh;
+        margin: 5vh;
+        padding: 5vw;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartCard">
+      <div class="chartBox">
 
-                <p>There are some potential risks to this study.  These include individual data being revealed to people other than the researchers, leading to a sense of retribution if individual student data is revealed to the professor. To remove this risk, the survey does not collect any identifying personal information. Also, the collected data will be shared with the professor only after the final grades for the class are published so that the overall data does not influence the professor’s grading. It is unlikely that you will benefit directly by participating in this study, but the research results may benefit future CSSE220 students by providing feedback on instruction. 
-                </p>
+        <h2> Student Responses</h2>
+        <canvas id="myChart"></canvas>
 
-                <p>If you have any questions, please contact the Primary Investigators Anahita Adhikari and Hank Helmers by mail at Rose-Hulman Institute of Technology, 5500 Wabash Avenue, Terre Haute, IN 47803, by email at adhikaa1@rose-hulman.edu and helmerhj@rose-hulman.edu, respectively. Alternatively, you can contact the faculty advisor Dr. Robert Williamson williarj@rose-hulman.edu. 
-                </p>
+       <!--
+        <input onkeyup="updateChart(this)" type="number">
+       -->
+      </div>
+    </div>
 
-                <p>If you have any questions about your rights as a research subject or if you feel you have been placed at risk, you may contact the Institute Reviewer (IR) Daniel Morris by mail at Rose-Hulman Institute of Technology, Office of Sponsored Programs, 5500 Wabash Avenue, Terre Haute, IN 47803, by phone at (812) 877-8314 or by email at morris@rose-hulman.edu.
-                </p>
 
-                <p>By checking the box below, I agree to participate in this study. I understand the procedures described above. My questions have been answered to my satisfaction. I have been given a copy of this form.</p>
-            </div>
+    <!-- Import ChartJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+    // setup 
+    const data = {
+      labels: ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'],
+      //abels: ['January', 'February', 'March', 'April'],
+      datasets: [{
+            type: 'bar',
+            label: 'Bar Dataset',
+            data: [0, 0, 0, 0]
+        }, 
+        {
+            type: 'scatter',
+            label: 'Syntax Difficulty',
+            data: [4.5, 3, 2, 1],
+        },
+        {
+            type: 'scatter',
+            label: 'Conceptual Difficulty',
+            data: [2, 3, 4, 4.5],
+        },
+    ],
+    };
 
-            <!-- "Sign" with checkbox and continue to survey-->
-            <div class="form-control">
-                <label for="inp-1">
-                    <input id="checkbox" type="checkbox" name="inp"></input>
-                    
-                    I agree to participate in this study. I understood the procedures described above.
-                </label>           
-            
-                <a hidden id="continue-btn" href="https://williamson-surveying-tool.web.app/">Continue to survey</a>
-            </div>
-        </div>
-      
-        
-        
-        <script src="bundle.js" async defer></script>
-    </body>
+    // config 
+    const config = {
+        data,
+        options: {
+            scales: {
+                x: {
+                    //type: 'linear',
+                },
+                y: {
+                    max:5,
+                    ticks: {
+                        stepSize: 1,
+                    }
+                }
+            },
+
+            plugins: {
+                legend: {
+                    labels: {
+                        usePointStyle: true,
+                    }
+                }
+            }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    function updateChart(barvalue) {
+        console.log(barvalue.value)
+        myChart.config.data.datasets[0].data[0] = barvalue.value;
+        myChart.update();
+    }
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
 </html>
