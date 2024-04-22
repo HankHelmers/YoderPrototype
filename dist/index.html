@@ -11,31 +11,19 @@
 
 <body>
     <script>
-        var questionNumber = "Question 1";
-        var questionTxt = "For each assignment, rank the syntax* difficulty required on a scale from 1 to 5.";
-        var subtitleTxt = "5 being most difficult and 1 being not difficult.";
-        var annotationTxt = "*Syntax is defined as, 'rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that (programming) language.'"
-
         document.addEventListener("DOMContentLoaded", function () {
-            populatePageInfo(questionNumber, questionTxt, subtitleTxt, annotationTxt);
+            populatePageInfo();
         });
-
-        function populatePageInfo(questionNumber, questionTxt, subtitleTxt, annotationTxt) {
-            document.getElementById("questionNumber").innerText = questionNumber;
-            document.getElementById("questionTxt").innerText = questionTxt;
-            document.getElementById("subtitleTxt").innerText = subtitleTxt;
-            document.getElementById("annotationTxt").innerText = annotationTxt;
-        }
     </script>
 
     <div class="chartBox">
-        <h2 id="questionNumber">Question 1</h2>
+        <h2 id="questionNumber">Question X</h2>
         <h1 id="questionTxt">Question text not set.</h1>
-        <p  id="subtitleTxt"></p>
+        <p  id="subtitleTxt">Subtitle</p>
 
         <canvas id="myChart"></canvas>
 
-        <p id="annotationTxt"></p>
+        <p id="annotationTxt">Annotation</p>
 
         <!-- Go to Question 2 -->
         <a id="nextBtn" hidden href="question2.html"><button>Next Question</button></a>
