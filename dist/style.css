@@ -1,80 +1,76 @@
 * {
     margin: 0;
     padding: 0;
+
     font-family: sans-serif;
 }
- 
 
-
-.chartCard {
-    width: 100vw;
-    height: 100vh; 
-    background: rgba(54, 162, 235, 0.2);
+body {
     display: flex;
-    align-items: center;
-    justify-content: center; 
+    justify-content: center;
+
+    background: rgba(54, 162, 235, 0.2);
 }
 
+h1 {
+    font-size: 1.5rem;
+}
+
+p {
+    padding: 1vh 0 1vh 0;
+}
 
 .chartBox {
-    width: 80vh;
-    margin: 5vh;
-    padding: 5vw;
+    max-width: 70%;
+
+    padding: 2vw;
+    margin: 1vw;
+
+    background: white;
     border-radius: 20px;
     border: solid 3px rgba(54, 162, 235, 1);
-    background: white;
-} 
-
-h1, h3, p {
-    padding: 3vh 0 0 0;
 }
 
 button {
-    margin: 1vh;
+    margin: 1vh 0 1vh 0;
     padding: 1vh;
+    width:100%;
     border: solid 3px rgb(136, 139, 141);
     background-color: rgb(206, 206, 206)
-  }
-
-
-/* body {
-    background: rgba(54, 162, 235, 0.2);
-    font-family: sans-serif;
-    font-size: 1em;
-
-   margin: 3em 1em 3em 1em;
-   height: 100%;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
 
-    margin: auto;
-    max-width:50rem;
-    padding: 1.5em;
+@media (max-width: 500px) {
+    h1 {
+        font-size: 5vw;
+    }
 
-    background-color: white;
-    border-radius: 1em;
-    border: solid 0.15em rgba(54, 162, 235, 1);
+    .chartBox {
+        background-color: lightblue;
+        max-width: 100%;
+    }
 }
 
-iframe {
-    height: 50em;
-}
+/* @media (orientation: landscape) {
+    h1 {
+        font-size: 3vw;
+    }
 
-.form-control {
-    padding: 1em 1em 0 0;
-    display: flex;
-    flex-direction: column;
-}
+    .chartBox {
+        max-width: 100%;
 
-#continue-btn {
-    padding: 1em;
-    margin: 1em 0 0 0;
+        padding: 1vw;
+        margin: 1vw;
 
-    width:fit-content;
-    border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 0.3);
-    background-color: rgba(54, 162, 235, 0.3);
+        border-radius: 0px;
+        border: solid 3px rgba(54, 162, 235, 0);
+    }
 } */
+
+/* width: 80vh;
+    background: white; */
+/* margin: 5vh;
+    padding: 5vw;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+     */

@@ -1,3 +1,23 @@
+/////// INPUTS
+
+// Chart settings
+var type = "Categorical Rating"
+var questionId = 1;
+
+// X Axes Categories
+var xLabels = ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'] // X Axis Categories
+var xFontSize = 10;
+
+// Y Axis Settings
+var yLabel = "Syntax Difficulty"  
+var yMax = 5;
+var yMin = 0;
+var yStepsize = 1;
+
+var pointRadius = 20;
+
+
+////////////////////////////////////
 console.log("hello from index.js");
 
 var inputCnt = 0;
@@ -5,26 +25,24 @@ const INPUT_MAX = 4;
 
 // setup 
 const data = {
-    labels: ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'],
-    //abels: ['January', 'February', 'March', 'April'],
+    labels: xLabels,
+
     datasets: [{
         type: 'bar',
         label: 'Bar Dataset',
+        font: {
+            size: 0,
+        },
         data: [0, 0, 0, 0],
-        pointRadius: 20,
+        pointRadius: pointRadius,
     },
+    // datasets[1] -- syntax difficulty
     {
         type: 'scatter',
-        label: 'Syntax Difficulty',
+        label: yLabel,
         data: [],
-        pointRadius: 20,
+        pointRadius: pointRadius,
     },
-    // {
-    //     type: 'scatter',
-    //     label: 'Conceptual Difficulty',
-    //     data: [2, 3, 4, 4.5],
-    //     pointRadius: 20,
-    // },
     ],
 };
 
@@ -34,12 +52,17 @@ const config = {
     options: {
         scales: {
             x: {
-                //type: 'linear',
+                ticks: {
+                    font: {
+                        size: xFontSize,
+                    }
+                }
             },
             y: {
-                max: 5,
+                max: yMax,
+                min: yMin,
                 ticks: {
-                    stepSize: 1,
+                    stepSize: yStepsize,
                 }
             }
         },
@@ -47,9 +70,18 @@ const config = {
         plugins: {
             legend: {
                 labels: {
+                    // Legend font-size, not labels
+                    // font: {
+                    //     size: 14
+                    // },
                     usePointStyle: true,
+                },
+                tooltip: {
+                    font: {
+                        size: 1
+                    }
                 }
-            }
+            },
         },
 
         // When Chart is Clicked
@@ -83,33 +115,15 @@ function chartOnClick(e) {
 // Adds a point to the chart 
 function addPoint(dataX, dataY) {
     // { x: dataX, y: dataY }
-    
+
     myChart.config.data.datasets[1].data[dataX] = dataY;
-    inputCnt = (inputCnt >= 4) ? 4 : inputCnt+1;
+    inputCnt = (inputCnt >= 4) ? 4 : inputCnt + 1;
 
     console.log(inputCnt);
 
-    if(inputCnt >= 4) {
+    if (inputCnt >= 4) {
         document.getElementById('submitBtn').removeAttribute("hidden")
     }
 
     myChart.update();
 }
-
-
-/* Old
-
-
- 
-function updateChart(barvalue) {
-  console.log(barvalue.value)
-  myChart.config.data.datasets[0].data[0] = barvalue.value;
-  myChart.update();
-}
-
-// Instantly assign Chart.js version
-const chartVersion = document.getElementById('chartVersion');
-chartVersion.innerText = Chart.version;
-
-
-*/
