@@ -8,11 +8,6 @@
 
 //////////////////////////////////// INPUTS
 
-function populatePageInfo(title, subtitle) {
-
-    console.log("populatePageInfo");
-}
-
 // Chart settings
 var type = "Categorical Rating"
 var questionId = 1;
@@ -23,7 +18,7 @@ var xLabels = ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'] // X Axis Ca
 var xFontSize = 10;
 
 // Y Axis Settings
-var yLabel = "Syntax Difficulty"  
+//var yLabel = "Syntax Difficulty"
 var yMax = 5;
 var yMin = 0;
 var yStepsize = 1;
@@ -31,84 +26,86 @@ var yStepsize = 1;
 var pointRadius = 20;
 
 
+
 //////////////////////////////////// Setup Chart
 console.log("hello from chart.js");
 
 var inputCnt = 0;
 const INPUT_MAX = 4;
-  
-const data = {
-    labels: xLabels,
 
-    datasets: [{
-        type: 'bar',
-        label: 'Bar Dataset',
-        font: {
-            size: 0,
-        },
-        data: [0, 0, 0, 0],
-        pointRadius: pointRadius,
-    },
-    // datasets[1] -- syntax difficulty
-    {
-        type: 'scatter',
-        label: yLabel,
-        data: [],
-        pointRadius: pointRadius,
-    },
-    ],
-};
+function defineChart(yLabel) {
+    const data = {
+        labels: xLabels,
 
-// config 
-const config = {
-    data,
-    options: {
-        scales: {
-            x: {
-                ticks: {
-                    font: {
-                        size: xFontSize,
-                    }
-                }
+        datasets: [{
+            type: 'bar',
+            label: 'Bar Dataset',
+            font: {
+                size: 0,
             },
-            y: {
-                max: yMax,
-                min: yMin,
-                ticks: {
-                    stepSize: yStepsize,
-                }
-            }
+            data: [0, 0, 0, 0],
+            pointRadius: pointRadius,
         },
+        // datasets[1] -- syntax difficulty
+        {
+            type: 'scatter',
+            label: yLabel,
+            data: [],
+            pointRadius: pointRadius,
+        },
+        ],
+    };
 
-        plugins: {
-            legend: {
-                labels: {
-                    // Legend font-size, not labels
-                    // font: {
-                    //     size: 14
-                    // },
-                    usePointStyle: true,
+    // config 
+    const config = {
+        data,
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            size: xFontSize,
+                        }
+                    }
                 },
-                tooltip: {
-                    font: {
-                        size: 1
+                y: {
+                    max: yMax,
+                    min: yMin,
+                    ticks: {
+                        stepSize: yStepsize,
                     }
                 }
             },
-        },
 
-        // When Chart is Clicked
-        onClick(e) { chartOnClick(e) },
-    }
-};
+            plugins: {
+                legend: {
+                    labels: {
+                        // Legend font-size, not labels
+                        // font: {
+                        //     size: 14
+                        // },
+                        usePointStyle: true,
+                    },
+                    tooltip: {
+                        font: {
+                            size: 1
+                        }
+                    }
+                },
+            },
+
+            // When Chart is Clicked
+            onClick(e) { chartOnClick(e) },
+        }
+    };
 
 
-// render init block
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-);
-
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+}
 
 // Handles when the chart is clicked
 function chartOnClick(e) {
@@ -141,13 +138,4 @@ function addPoint(dataX, dataY) {
     // ADD QUESTION X DATA TO DATASET
 
     myChart.update();
-}
-
-function nextBtnPressed() {
-    questionId++;
-}
-
-// submitBtn pressed
-function submitBtnPressed() {
-    // only pressable on the last question
 }

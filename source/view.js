@@ -5,5 +5,4 @@
 
 */
 
-console.log("Hello from view22.js")
 
