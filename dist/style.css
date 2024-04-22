@@ -16,6 +16,10 @@ h1 {
     font-size: 1.5rem;
 }
 
+h2 {
+    font-size: 1rem;
+}
+
 p {
     padding: 1vh 0 1vh 0;
 }
@@ -32,7 +36,6 @@ p {
 }
 
 button {
-    margin: 1vh 0 1vh 0;
     padding: 1vh;
     width:100%;
     border: solid 3px rgb(136, 139, 141);

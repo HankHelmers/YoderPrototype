@@ -1,8 +1,8 @@
 {
   "name": "yoderprototype",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Prototype for Categorical Rating type of question.",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"

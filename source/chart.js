@@ -1,8 +1,22 @@
-/////// INPUTS
+/*
+
+* Provides the definition of Chart.js
+* Manages I/O with Database & Chart interactions
+
+*/
+
+
+//////////////////////////////////// INPUTS
+
+function populatePageInfo(title, subtitle) {
+
+    console.log("populatePageInfo");
+}
 
 // Chart settings
 var type = "Categorical Rating"
 var questionId = 1;
+var questionTotal = 2;
 
 // X Axes Categories
 var xLabels = ['Twelve Problems', '2D Array', 'Hashmap', 'HW Quiz'] // X Axis Categories
@@ -17,13 +31,12 @@ var yStepsize = 1;
 var pointRadius = 20;
 
 
-////////////////////////////////////
-console.log("hello from index.js");
+//////////////////////////////////// Setup Chart
+console.log("hello from chart.js");
 
 var inputCnt = 0;
 const INPUT_MAX = 4;
-
-// setup 
+  
 const data = {
     labels: xLabels,
 
@@ -122,8 +135,19 @@ function addPoint(dataX, dataY) {
     console.log(inputCnt);
 
     if (inputCnt >= 4) {
-        document.getElementById('submitBtn').removeAttribute("hidden")
+        document.getElementById('nextBtn').removeAttribute("hidden")
     }
 
+    // ADD QUESTION X DATA TO DATASET
+
     myChart.update();
+}
+
+function nextBtnPressed() {
+    questionId++;
+}
+
+// submitBtn pressed
+function submitBtnPressed() {
+    // only pressable on the last question
 }

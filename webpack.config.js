@@ -2,10 +2,13 @@ const path = require('path')
 
 module.exports = {
     mode: 'development',
-    entry: './source/index.js',
+    entry: {
+        chart: './source/chart.js',
+        view: './source/view.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     watch: true
 }
