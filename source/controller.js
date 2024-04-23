@@ -5,10 +5,11 @@
 
 */
 
-import { getQuestionTxt, getSubtitleTxt, getAnnotationTxt } from 'model.js'
+import { getQuestionTxt, getSubtitleTxt, getAnnotationTxt } from '/source/data.js'
 
 function populatePageInfo() {
-    console.log("populatePageInfo");
+    console.log("populatePageInfo" + getQuestionTxt());
+    
 
     document.getElementById("questionNumber").innerText = questionNumber;
     document.getElementById("questionTxt").innerText = questionTxt;
