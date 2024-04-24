@@ -5,7 +5,9 @@
 
 */
 
-var currQuestion = localStorage.getItem('currQuestion') || 1;
+console.log("Hello from data.js")
+
+var currQuestion = 0;
 var totalQuestions = 2;
 
 var questionTxt = [
@@ -23,21 +25,42 @@ var annotationTxt = [
     "*CONCEPTUAL? is defined as, 'rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that (programming) language.'",
 ];
 
-function getQuestionTxt() {
+var datasetName = [
+    "Syntax Difficulty",
+    "Conceptual Difficulty",
+]
+
+// Export is an important inclusion if we want to call from another function
+export function resetQuestions() {
+    currQuestion = 1;
+    //currQuestion = localStorage.setItem('currQuestion', currQuestion);
+}
+
+export function getQuestionNumber() {
+    return currQuestion;
+}
+
+export function getQuestionTxt() {
+    console.log("DATA.js: currQuestion:", currQuestion);
     return questionTxt[currQuestion-1]; 
 }
 
-function getSubtitleTxt() {
+export function getSubtitleTxt() {
     return subtitleTxt[currQuestion-1]; 
 }
 
-function getAnnotationTxt() {
+export function getAnnotationTxt() {
     return annotationTxt[currQuestion-1];
 }
 
-function goToNextQuestion() {
+export function getDatasetName() {
+    return datasetName[currQuestion-1];
+}
+
+export function goToNextQuestion() {
+    // If there is another question
     if(currQuestion < totalQuestions) {
+        // move to that question
         currQuestion++;
-        currQuestion = localStorage.setItem('currQuestion', currQuestion);
     }
 }

@@ -10,11 +10,7 @@
 </head>
 
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            populatePageInfo();
-        });
-    </script>
+
 
     <div class="chartBox">
         <h2 id="questionNumber">Question X</h2>
@@ -26,12 +22,12 @@
         <p id="annotationTxt">Annotation</p>
 
         <!-- Go to Question 2 -->
-        <a id="nextBtn" hidden href="question2.html"><button>Next Question</button></a>
+        <button hidden id="nextBtn">Next Question</button></a>
     </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <script src="chart.bundle.js"></script>
-    <script src="view.bundle.js"></script>
+    <script src="controller.bundle.js"></script>
 </body>
 
 </html>

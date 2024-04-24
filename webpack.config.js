@@ -3,8 +3,6 @@ const path = require('path')
 module.exports = {
     mode: 'development',
     entry: {
-        data: './source/data.js',
-        chart: './source/chart.js',
         controller: './source/controller.js',
     },
     output: {
