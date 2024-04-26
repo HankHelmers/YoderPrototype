@@ -12,7 +12,7 @@ var totalQuestions = 2;
 
 var questionTxt = [
     "For each assignment, rank the syntax* difficulty required on a scale from 1 to 5.", //Q1
-    "For each assignment, rank the conceptual* difficulty required on a scale from 1 to 5.", //Q2
+    "For each assignment, rank the conceptual difficulty required on a scale from 1 to 5.", //Q2
 ];
 
 var subtitleTxt = [
@@ -22,7 +22,7 @@ var subtitleTxt = [
 
 var annotationTxt = [
     "*Syntax is defined as, 'rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that (programming) language.'",
-    "*CONCEPTUAL? is defined as, 'rules that define the combinations of symbols that are considered to be correctly structured statements or expressions in that (programming) language.'",
+    "",
 ];
 
 var datasetName = [
