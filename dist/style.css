@@ -32,7 +32,7 @@ p {
 
     background: white;
     border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 1);
+    border: solid 1vmin rgba(54, 162, 235, 1);
 }
 
 button {
@@ -49,7 +49,7 @@ button {
     }
 
     .chartBox {
-        background-color: lightblue;
+        /*background-color: lightblue;*/
         max-width: 100%;
     }
 }

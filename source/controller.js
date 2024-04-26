@@ -40,6 +40,8 @@ function populatePageInfo() {
 // Called from next question button
 function moveToNextQuestion() {
 
+    document.getElementById('nextBtn').hidden = true;
+
     // DATA.js UPDATE
     // go to next question in data
     goToNextQuestion();

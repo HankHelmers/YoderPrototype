@@ -130,17 +130,27 @@ function addPoint(dataX, dataY) {
     // { x: dataX, y: dataY }
 
     myChart.config.data.datasets[1].data[dataX] = dataY;
-    inputCnt = (inputCnt >= 4) ? 4 : inputCnt + 1;
 
-    console.log(inputCnt);
+    console.log(isChartFilled());
 
-    if (inputCnt >= 4) {
-        document.getElementById('nextBtn').removeAttribute("hidden")
+    if (isChartFilled()) {
+        document.getElementById('nextBtn').removeAttribute("hidden");
     }
 
     // ADD QUESTION X DATA TO DATASET
 
     myChart.update();
+}
+
+function isChartFilled() {
+    var dataset = myChart.config.data.datasets[1]
+    var isFilled = true;
+
+    for(var i = 0; i < xLabels.length; i++) {
+        isFilled = isFilled && dataset.data[i] != null; 
+    }
+    
+    return isFilled;
 }
 
 // Called from controller.js @ START 
