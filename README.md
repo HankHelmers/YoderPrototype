@@ -16,9 +16,16 @@ MVC implementation for multiple of the same type of chart questions asked in seq
 
 ### yoder-mvc-1.3
 Need to do:
-* Change the "Syntax Difficulty" tag when moving from question to question
+* Change the "Syntax Difficulty" tag when moving from question to question -- Currently have data to control this (datasetName?)
+* Change the color for the two datasets -- Syntax Difficulty and Conceptual Difficulty datasets
 * Save data into a dataset when we get to the last question
   
+04/26/24 Update 
+Developed for 1 hour
+* Fixed bug: Would show "Next Question" button after clicking four times after the graph, not when they had completely added all the data.
+
+* Moved the consent form to the MVC version, to test full flow.
+
 04/23/24 Update
 Developed for 1:30 hours
 * Connected the core functionality of MVC - controller.js, data.js & chart.js
