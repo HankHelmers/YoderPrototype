@@ -55,12 +55,13 @@ const data = {
         pointRadius: pointRadius,
     },
 
-    // datasets[1] -- syntax difficulty
+    // datasets[1] -- syntax difficulty, conceptual difficulty
     {
         type: 'scatter',
         label: yLabel,
         data: [],
         pointRadius: pointRadius,
+        backgroundColor: '#9BD0F5',
     },
     ],
 };
@@ -160,8 +161,14 @@ export function renderChart() {
 }
 
 // Called from data.js when ready to move
-export function saveAndResetChartData() {
+export function saveAndResetChartData(datasetName, datasetColor) {
     console.log("CHART.JS: Save data " + data.datasets[1].data);
+    console.log("Dataset Name: " + datasetName);
+
+    // Change the label and color for the next question
+    data.datasets[1].label = datasetName; 
+    data.datasets[1].backgroundColor = datasetColor; 
+
     data.datasets[1].data = [];
     myChart.update();
 }

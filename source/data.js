@@ -30,10 +30,16 @@ var datasetName = [
     "Conceptual Difficulty",
 ]
 
+var datasetColor = [
+    '#9BD0F5',
+    '#FFB1C1'
+]
+
+
+
 // Export is an important inclusion if we want to call from another function
 export function resetQuestions() {
     currQuestion = 1;
-    //currQuestion = localStorage.setItem('currQuestion', currQuestion);
 }
 
 export function getQuestionNumber() {
@@ -57,6 +63,10 @@ export function getDatasetName() {
     return datasetName[currQuestion-1];
 }
 
+export function getDatasetColor() {
+    return datasetColor[currQuestion-1];
+}
+
 export function goToNextQuestion() {
     // If there is another question
     if(currQuestion < totalQuestions) {
@@ -64,3 +74,58 @@ export function goToNextQuestion() {
         currQuestion++;
     }
 }
+
+
+/*
+FIREBASE INTERACTIONS
+*/
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import {
+    getFirestore,
+    collection,
+    //getDocs,
+    addDoc,
+    //onSnapshot,
+} from "firebase/firestore";
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDlo37AEIyiacdh57NpuZVdYF-hPF9lf4E",
+  authDomain: "csse220-survey-prototype.firebaseapp.com",
+  projectId: "csse220-survey-prototype",
+  storageBucket: "csse220-survey-prototype.appspot.com",
+  messagingSenderId: "908571735702",
+  appId: "1:908571735702:web:d357d8b7115faad27bb4b7",
+  measurementId: "G-8R390H99M1"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore();
+
+// collection ref
+const colRef = collection(db, "responses");
+
+export function saveDataFromChart(inputPositions, pointSize) {
+    var userId = generateUserId();
+    
+    // addDoc(colRef, {
+    //     userId: userId,
+    //     //key: keys,
+    //     data: inputPositions,
+    //     circle_size: pointSize,
+    //   }).then(() => {
+    //     location.href = "thanks.html"
+    //   });
+
+}
+
+
+function generateUserId() {
+    return Math.round(Math.random()*100000);
+}
+  

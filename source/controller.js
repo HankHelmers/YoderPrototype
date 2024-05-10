@@ -9,6 +9,8 @@ import {
     getQuestionNumber, getQuestionTxt, getSubtitleTxt, getAnnotationTxt, 
     goToNextQuestion,
     resetQuestions,
+    getDatasetName,
+    getDatasetColor,
 } from './data';
 
 import { renderChart, saveAndResetChartData } from './chart';
@@ -48,7 +50,8 @@ function moveToNextQuestion() {
 
     // CHART.js UPDATE
     // save chart data & reset chart
-    saveAndResetChartData();
+    saveAndResetChartData(getDatasetName(), getDatasetColor());
 
+    // Viewer UPDATE
     populatePageInfo();
 }
