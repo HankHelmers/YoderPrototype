@@ -5,6 +5,8 @@
 
 */
 
+import { saveDataFromChart } from "./data";
+
 //////////////////////////////////// INPUTS
 
 // Chart settings
@@ -162,8 +164,11 @@ export function renderChart() {
 
 // Called from data.js when ready to move
 export function saveAndResetChartData(datasetName, datasetColor) {
-    console.log("CHART.JS: Save data " + data.datasets[1].data);
-    console.log("Dataset Name: " + datasetName);
+    //console.log("CHART.JS: Save data " + data.datasets[1].data);
+    //console.log("Dataset Name: " + datasetName);
+
+    // Save data in database (through data.js)
+    saveDataFromChart(data.datasets[1].data, pointRadius);
 
     // Change the label and color for the next question
     data.datasets[1].label = datasetName; 

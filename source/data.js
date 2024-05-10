@@ -104,7 +104,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore();
 
 // collection ref
@@ -113,14 +112,18 @@ const colRef = collection(db, "responses");
 export function saveDataFromChart(inputPositions, pointSize) {
     var userId = generateUserId();
     
-    // addDoc(colRef, {
-    //     userId: userId,
-    //     //key: keys,
-    //     data: inputPositions,
-    //     circle_size: pointSize,
-    //   }).then(() => {
-    //     location.href = "thanks.html"
-    //   });
+    console.log("(DATA.JS) SAVE DATA TO DATABASE: " + inputPositions)
+
+    // WORKS but currently have to put in proper security rules 
+    addDoc(colRef, {
+        userId: "TEST",
+        //key: keys,
+        data: inputPositions,
+        circle_size: pointSize,
+      }).then(() => {
+        console.log("(DATA.JS) Saved Successfully");
+        //location.href = "thanks.html"
+      });
 
 }
 
