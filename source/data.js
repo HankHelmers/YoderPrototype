@@ -7,7 +7,7 @@
 
 console.log("Hello from data.js")
 
-var currQuestion = 0;
+var currQuestionIndex = 0;
 var totalQuestions = 2;
 
 var questionTxt = [
@@ -35,43 +35,47 @@ var datasetColor = [
     '#FFB1C1'
 ]
 
-
+var dataset = [];
 
 // Export is an important inclusion if we want to call from another function
 export function resetQuestions() {
-    currQuestion = 1;
+    currQuestionIndex = 0;
 }
 
 export function getQuestionNumber() {
-    return currQuestion;
+    return (currQuestionIndex+1);
 }
 
 export function getQuestionTxt() {
-    console.log("DATA.js: currQuestion:", currQuestion);
-    return questionTxt[currQuestion-1]; 
+    console.log("(DATA.js) currQuestionIndex:", currQuestionIndex);
+    return questionTxt[currQuestionIndex]; 
 }
 
 export function getSubtitleTxt() {
-    return subtitleTxt[currQuestion-1]; 
+    return subtitleTxt[currQuestionIndex]; 
 }
 
 export function getAnnotationTxt() {
-    return annotationTxt[currQuestion-1];
+    return annotationTxt[currQuestionIndex];
 }
 
 export function getDatasetName() {
-    return datasetName[currQuestion-1];
+    return datasetName[currQuestionIndex];
 }
 
 export function getDatasetColor() {
-    return datasetColor[currQuestion-1];
+    return datasetColor[currQuestionIndex];
 }
 
 export function goToNextQuestion() {
     // If there is another question
-    if(currQuestion < totalQuestions) {
-        // move to that question
-        currQuestion++;
+  
+    // move to that question
+    if(currQuestionIndex+1 == totalQuestions) {
+        // completed survey
+        completeSurvey();
+    } else {
+        currQuestionIndex++;
     }
 }
 
@@ -109,26 +113,25 @@ const db = getFirestore();
 // collection ref
 const colRef = collection(db, "responses");
 
-export function saveDataFromChart(inputPositions, pointSize) {
-    var userId = generateUserId();
-    
-    console.log("(DATA.JS) SAVE DATA TO DATABASE: " + inputPositions)
+export function saveDataFromChart(inputPositions) {
+    dataset[currQuestionIndex-1] = inputPositions;
+
+    console.log("(DATA.JS) SAVE DATA TO DATABASE; currQuestionIndex-1 - " + (currQuestionIndex-1) + "; dataset: " + dataset[currQuestionIndex-1])
 
     // WORKS but currently have to put in proper security rules 
-    addDoc(colRef, {
-        userId: "TEST",
-        //key: keys,
-        data: inputPositions,
-        circle_size: pointSize,
-      }).then(() => {
-        console.log("(DATA.JS) Saved Successfully");
-        //location.href = "thanks.html"
-      });
-
+    // Only after completing all questions
 }
 
-
-function generateUserId() {
-    return Math.round(Math.random()*100000);
+export function completeSurvey() {
+    console.log("(DATA.JS) Completed all questions")
+        
+    addDoc(colRef, {
+        //key: keys,
+        data: dataset,
+        circle_size: 20,
+      }).then(() => {
+        console.log("(DATA.JS) Saved Successfully");
+        //location.href = "thankyou.html";
+      });
 }
   
